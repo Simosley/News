@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.yellow-button{
+    display: inline-block;
+    background-color: #ffa000;
+    line-height: 30px;
+    margin-top: 15px;
+}
