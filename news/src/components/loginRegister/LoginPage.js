@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-//import { signIn } from '../../store/actions/authActions'
 import { Redirect } from 'react-router-dom'
 import './login.css'
 import { NavLink } from 'react-router-dom'
+import { logIn } from '../../store/actions/mainActions'
 
 class LoginPage extends Component {
     state = {
@@ -18,13 +18,13 @@ class LoginPage extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.signIn(this.state)
+        this.props.logIn(this.state)
         
         
     }
     render() {
-        //const { authError, auth} =this.props
-        //if (auth.uid) return <Redirect to ='/' />
+        const { authError, auth} =this.props
+        if (auth.uid) return <Redirect to ='/' />
         return (
             <div className="col s12 z-depth-6 card-panel login-page">
                 <form onSubmit={this.handleSubmit}>
@@ -42,7 +42,9 @@ class LoginPage extends Component {
                     <div className="input-field">
                         <p className="center ">Dont have an account? Click here to <NavLink to ='/register'>Register</NavLink></p> 
                         <button className="btn waves-effect waves-light col s12 ButtonColor">Login</button>
-                       
+                        <div className="red-text center">
+                            {authError ? <p>{authError}</p> : null }
+                        </div>
 
                     </div>
                 </form>
@@ -50,6 +52,20 @@ class LoginPage extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        authError: state.auth.authError,
+        auth: state.firebase.auth
+    }
+}
 
 
-export default LoginPage
+const mapDispatchToProps = (dispatch) => {
+    return {
+        logIn: (creds) => dispatch (logIn(creds))
+    }
+}
+
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(LoginPage)

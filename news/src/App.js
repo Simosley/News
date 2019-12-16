@@ -3,6 +3,9 @@ import NavBar from './components/navigation/NavBar'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import LoginPage from './components/loginRegister/LoginPage'
 import RegisterPage from './components/loginRegister/RegisterPage'
+import Profile from './components/Profile/Profile'
+import createNew from './components/News/createNew'
+import homePage from './components/navigation/homePage'
 
 class App extends Component {
     render() {
@@ -12,12 +15,12 @@ class App extends Component {
                 <div className="App">
                     <NavBar/>
                      <Switch>
-                        <Route exact path = '/' />
+                        <Route exact path = '/'component ={homePage} />
                         <Route path = '/project/:id' />
                         <Route path = '/login' component ={LoginPage}/>
                         <Route path = '/register' component ={RegisterPage}  />
-                        <Route path = '/create'  />
-                        <Route path = '/profile'  />
+                        <Route path = '/create' component={createNew} />
+                        <Route path = '/profile' component={Profile} />
                     
                     </Switch>
                 </div>
