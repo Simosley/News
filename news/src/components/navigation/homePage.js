@@ -20,7 +20,7 @@ class HomePage extends Component{
         } 
         return(
             <div className="container">
-                <h2>News</h2>
+                <h2 className="center">News</h2>
 
                 <div className="row">
                     
@@ -39,10 +39,10 @@ class HomePage extends Component{
                                         </div>
                                         <div className="card-reveal">
                                             <span className="card-title grey-text text-darken-4">{anew.title}<i className="material-icons right">close</i></span>
-                                            <p>{anew.content}</p>
+                                            <p className="truncate">{anew.content}</p>
                                         </div>
                                         <div className="card-action">                                          
-                                            <a href="#"className="btn-floating waves-effect waves-light red">
+                                            <a href="#"className="btn-floating hoverable red">
                                                 <i className="material-icons prefix" onClick={handleLike}>{(profile.newsLiked && profile.newsLiked.includes(anew.id)) ? 'favorite' : 'favorite_border'}</i>
                                             </a>
                                             <Link to = {'/new/' + anew.id} key ={anew.id} className="btn waves-effect waves-light right read-more">Read More</Link>

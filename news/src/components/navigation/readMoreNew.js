@@ -5,7 +5,7 @@ import { compose } from 'redux'
 import { Redirect } from 'react-router-dom'
 import { likeNew } from '../../store/actions/mainActions'
 const readMoreNew = (props) => {
-    const  { news,anew,auth,profile,likeNew } = props;
+    const  { anew,auth } = props;
     console.log("props" ,props)
     if (!auth.uid) return <Redirect to ='/login' />
       
@@ -23,13 +23,7 @@ const readMoreNew = (props) => {
                 title={anew.title}
                 />
             </div>
-            
-            <div className="card">
-            
-                <div className="card-content">
-                    <span className="card-title">{anew.title}</span>
-                </div>
-            </div>
+           <p className="center flow-text">{anew.content}</p>
         </div>
     )
   } else{
