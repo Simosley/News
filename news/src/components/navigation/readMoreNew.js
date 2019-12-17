@@ -3,18 +3,17 @@ import { connect } from 'react-redux'
 import { firestoreConnect} from 'react-redux-firebase'
 import { compose } from 'redux'
 import { Redirect } from 'react-router-dom'
-import moment from 'moment'
 import { likeNew } from '../../store/actions/mainActions'
-
 const readMoreNew = (props) => {
     const  { news,anew,auth,profile,likeNew } = props;
     console.log("props" ,props)
     if (!auth.uid) return <Redirect to ='/login' />
+      
     
     if(anew){
     return (
         <div className="container">
-        <h1 className="center">{anew.title}</h1>
+        <h1 className="center">{anew.title}</h1>  
         <div className="videoWrapper center">
                 <iframe width="500" height="300"
                 src={anew.video}

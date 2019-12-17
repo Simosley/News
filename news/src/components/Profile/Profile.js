@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom'
 
 class Profile extends Component {
     render() {
-        const { name,email,profileImage ,auth,profile,news,userId} =this.props
+        const { name,email,profileImage ,auth} =this.props
         if (!auth.uid) return <Redirect to ='/login' />
         //const userNews = news.filter(aNew => aNew.authorId ===userId);
         return (
@@ -17,13 +17,8 @@ class Profile extends Component {
                 <h1 className="center-align">Personal Information</h1>
                 <p>Name: {name.firstName} {name.lastName}</p>
                 <p>Email: {email}</p>
-                
-                <p>Title: add titles</p>
             </div>
-            <div className="card-bot">
-                <p>Liked news - how many likes</p>
-                <p>Posted news - add how many </p>
-            </div>
+            
         </div>
         )
     }
@@ -36,10 +31,7 @@ const mapStateToProps = (state) => {
       name:state.firebase.profile,
       auth: state.firebase.auth,
       email:state.firebase.auth.email,
-      profileImage: state.firebase.profile.photoUrl,
-      profile:state.firebase.profile,
-      news:state.firestore.ordered.projects,
-      userId:state.firebase.auth.uid
+      profileImage: state.firebase.profile.photoUrl
     }
 }
 

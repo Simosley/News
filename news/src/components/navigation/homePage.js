@@ -9,8 +9,6 @@ import moment from 'moment'
 import {likeNew} from '../../store/actions/mainActions'
 
 class HomePage extends Component{
-    state
-    
     render(){
         const { news, auth,profile,likeNew }= this.props
          
@@ -47,7 +45,7 @@ class HomePage extends Component{
                                             <a href="#"className="btn-floating waves-effect waves-light red">
                                                 <i className="material-icons prefix" onClick={handleLike}>{(profile.newsLiked && profile.newsLiked.includes(anew.id)) ? 'favorite' : 'favorite_border'}</i>
                                             </a>
-                                            <Link to = {'/new/' + anew.id} key ={anew.id} className="btn waves-effect waves-light grey waves-effect right read-more">Read More</Link>
+                                            <Link to = {'/new/' + anew.id} key ={anew.id} className="btn waves-effect waves-light right read-more">Read More</Link>
                                             <p>Likes: {anew.likes}</p>
                                             
                                         </div>
