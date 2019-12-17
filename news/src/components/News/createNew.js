@@ -6,7 +6,8 @@ class CreateNew extends Component {
     state = {
         title: '',
         content : '',
-        photo:''
+        photo:'',
+        video:''
     }
     handleChange = (e) => {
         this.setState({
@@ -17,7 +18,9 @@ class CreateNew extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         //console.log(this.state)
-        
+        let modedVideo = this.state.video.replace('watch?v=','embed/');
+        this.state.video=modedVideo
+  
         this.props.createNew(this.state)
         this.props.history.push('/')
         
@@ -30,8 +33,9 @@ class CreateNew extends Component {
         
         if (!auth.uid) return <Redirect to ='/login'/>
         return (
-            <div className="col s12 z-depth-6 card-panel login-page">
-                <form onSubmit={this.handleSubmit} className="white-bitch">
+        <div className="container">
+            <div className="card-panel">
+                <form onSubmit={this.handleSubmit}>
                     <h5 className="grey-text text-darken-3">Post a new</h5>
                     <div className="input-field">
                         <i className="material-icons prefix">title</i>
@@ -45,8 +49,13 @@ class CreateNew extends Component {
                     </div>
                     <div className="input-field">
                         <i className="material-icons prefix">add_a_photo</i>
-                        <label htmlFor="photo">Photo</label>
+                        <label htmlFor="photo">Photo Url</label>
                         <input type="text" id ="photo" onChange = {this.handleChange}/>
+                    </div>
+                    <div className="input-field">
+                        <i className="material-icons prefix">videocam</i>
+                        <label htmlFor="video">Youtube Video Url</label>
+                        <input type="text" id ="video" onChange = {this.handleChange}/>
                     </div>
                     <div className="input-field">
                         <button className="btn waves-effect waves-light col s12 ButtonColor">Post</button>
@@ -54,6 +63,7 @@ class CreateNew extends Component {
                     </div>
                 </form>
             </div>
+         </div>
         )
     }
 }

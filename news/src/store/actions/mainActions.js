@@ -59,16 +59,26 @@ export const likeNew = (newsId) => {
 
         // newsId - current newsId
         // personsLikedNews - all event the person is participating
+        const currNew= getState().firestore.ordered.news.find(anew => anew.id === newsId)
+        let currentNewLikes = currNew.likes
         if(personsLikedNews.includes(newsId)) {
           personsLikedNews = personsLikedNews.filter(aNew => aNew !== newsId)
+          currentNewLikes-=1;
         } else {
           personsLikedNews.push(newsId);
+          currentNewLikes+=1
         }
 
         firestore.collection('users').doc(`${personId}`).set({
             ...profile,
             newsLiked: personsLikedNews
-        }).then(() => {
+        }).then(() =>{
+            firestore.collection('news').doc(`${newsId}`).set({
+                ...currNew,
+                likes: currentNewLikes
+            })
+        })
+        .then(() => {
             dispatch({ type: "LIKE_NEW" });
         }).catch((err) => {
             dispatch({ type: "LIKE_NEW_ERROR", err});

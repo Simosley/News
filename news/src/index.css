@@ -11,6 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.card-panel{
+  text-align: center;
+}
+.videoWrapper {
+	position: relative;
+	padding-bottom:35%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+
+
+.card
+{
+width: 300px;
+}
+.read-more{
+  margin-top: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 .yellow-button{
     display: inline-block;
     background-color: #ffa000;
@@ -44,24 +64,6 @@ code {
   font-size:20px;
   white-space: nowrap;
 
-}
-
-.card-info h3 {
-  font-size: 35px;
-  margin-bottom: 1;
-  color: #303F9F;
-  font-family: 'Montserrat', sans-serif;
-
-  
-}
-
-
-.card-info h4 {
-  font-size: 20px;
-  margin-top: 0;
-  color: #303F9F;
-  font-family: 'Montserrat', sans-serif;
-  text-align: left;
 }
 
 

@@ -20,6 +20,7 @@ const LoggedIn= (props) => {
         </div>
     )
 }
+
 const mapDispatchToProps = (dispatch) => {
     return {
         logOut : () => dispatch (logOut())

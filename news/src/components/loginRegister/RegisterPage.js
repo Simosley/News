@@ -26,7 +26,8 @@ class RegisterPage extends Component {
         const {auth, authError} =this.props
         if (auth.uid) return <Redirect to ='/' />
         return (
-            <div className="col s12 z-depth-6 card-panel login-page">
+        <div className="container">
+            <div className="card-panel box">
                 <form onSubmit={this.handleSubmit} className="white">
                     <h5 className="grey-text text-darken-3">Register</h5>
                     <div className="input-field">
@@ -62,6 +63,7 @@ class RegisterPage extends Component {
                     </div>
                 </form>
             </div>
+        </div>
         )
     }
 }

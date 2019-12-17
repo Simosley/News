@@ -9,7 +9,9 @@ export const createNew = (anew) => {
             authorFirstName: profile.firstName,
             authorLastName: profile.lastName,
             photo:anew.photo,
+            video:anew.video,
             authorId: authorId,
+            likes:0,
             createdAt: new Date()
         }).then(()=> {
             dispatch({type : 'CREATE_NEW', anew});

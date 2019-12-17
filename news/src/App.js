@@ -6,6 +6,7 @@ import RegisterPage from './components/loginRegister/RegisterPage'
 import Profile from './components/Profile/Profile'
 import createNew from './components/News/createNew'
 import homePage from './components/navigation/homePage'
+import readMoreNew from './components/navigation/readMoreNew'
 
 class App extends Component {
     render() {
@@ -16,7 +17,7 @@ class App extends Component {
                     <NavBar/>
                      <Switch>
                         <Route exact path = '/'component ={homePage} />
-                        <Route path = '/project/:id' />
+                        <Route path = '/new/:id'component ={readMoreNew} />
                         <Route path = '/login' component ={LoginPage}/>
                         <Route path = '/register' component ={RegisterPage}  />
                         <Route path = '/create' component={createNew} />

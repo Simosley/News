@@ -26,7 +26,8 @@ class LoginPage extends Component {
         const { authError, auth} =this.props
         if (auth.uid) return <Redirect to ='/' />
         return (
-            <div className="col s12 z-depth-6 card-panel login-page">
+        <div className="container">
+            <div className="card-panel">
                 <form onSubmit={this.handleSubmit}>
                     <h5 className="grey-text text-darken-3">Log in</h5>
                     <div className="input-field">
@@ -49,6 +50,7 @@ class LoginPage extends Component {
                     </div>
                 </form>
             </div>
+        </div>
         )
     }
 }
